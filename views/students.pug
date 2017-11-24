@@ -5,10 +5,11 @@ html
     h1 Student list:
     ul
       each student in students
-        li= student.name + ' is from ' + student.city.name
+        li= student.name + ' is from ' + student.city.name + ' '
+          a(href='/students/' + student.id) Show
 
     form(action='/students', method='POST')
-      p Add a new student
+      h3 Add a new student:
       input(name='student_name')
         
       select(name='city_id')
@@ -16,4 +17,3 @@ html
           option(value=city.id) #{city.name}
         
       input(type='submit')
-        
